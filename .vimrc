@@ -6,7 +6,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-
+Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
 
 Plugin 'rafi/awesome-vim-colorschemes'
@@ -34,7 +34,7 @@ set mouse=v
 set nohlsearch
 set tabstop=4
 set softtabstop=4
-set expandtab
+set noexpandtab
 set shiftwidth=4
 set autoindent
 set relativenumber
@@ -115,11 +115,15 @@ function! FormatOnSave()
 endfunction
 
 function! FormatAll()
-    let l:line = "all"
-    py3f ~/.clang-format.py
+	if &filetype ==# 'c'  || &filetype ==# 'cpp'
+		let l:line = "all"
+		py3f ~/.clang-format.py
+	endif
 endfunction
 
 autocmd BufWrite *.h,*.cc,*.cpp,*.c call FormatOnSave()
+
+
 nmap fa :execute FormatAll() <CR>
 
 set background=dark
@@ -164,7 +168,7 @@ nmap bp :bprev <CR>
 set completeopt-=preview
 let g:ycm_add_preview_to_completeopt = 0
 
-let g:ycm_filetype_whitelist = {"cpp": 1, "c": 1}
+let g:ycm_filetype_whitelist = {"cpp": 1, "c": 1, "go": 1}
 let g:ycm_enable_diagnostic_highlighting = 1
 let g:ycm_always_populate_location_list = 1
 let g:ycm_open_loclist_on_ycm_diags = 1
@@ -177,3 +181,7 @@ nmap  tdc : YcmCompleter GoToDeclaration <CR>
 nmap  tic : YcmCompleter GoToInclude <CR>
 nmap  gty : YcmCompleter GetType <CR>
 
+
+let g:go_fmt_autosave = 1
+let g:go_code_completion_enabled = 0
+let g:go_highlight_types = 1
