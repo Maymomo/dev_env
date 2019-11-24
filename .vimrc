@@ -25,6 +25,8 @@ Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'rdnetto/YCM-Generator'
 
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
 call vundle#end()            " required
 
 filetype plugin indent on    " required
@@ -67,8 +69,6 @@ endfunction
 
 autocmd BufWritePre *.h,*.cc,*.cpp,*.c call FormatOnSave()
 
-set background=dark
-colorscheme onedark
 
 "if &diff 
 "colorscheme evening endif
@@ -126,8 +126,8 @@ autocmd BufWrite *.h,*.cc,*.cpp,*.c call FormatOnSave()
 
 nmap fa :execute FormatAll() <CR>
 
-set background=dark
-colorscheme onedark
+"set background=dark
+"colorscheme onedark
 
 "if &diff 
 "colorscheme evening endif
@@ -176,6 +176,8 @@ let g:ycm_use_clangd = 1
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
 
+highlight Pmenu ctermfg=254 ctermbg=238 guifg=#808080 guibg=#c0c0c0
+
 nmap  tdf : YcmCompleter GoToDefinition <CR>
 nmap  tdc : YcmCompleter GoToDeclaration <CR>
 nmap  tic : YcmCompleter GoToInclude <CR>
@@ -185,3 +187,5 @@ nmap  gty : YcmCompleter GetType <CR>
 let g:go_fmt_autosave = 1
 let g:go_code_completion_enabled = 0
 let g:go_highlight_types = 1
+
+let g:airline_theme='light'
