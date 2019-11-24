@@ -7,6 +7,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'fatih/vim-go'
+
 Plugin 'majutsushi/tagbar'
 
 Plugin 'rafi/awesome-vim-colorschemes'
@@ -26,6 +27,10 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
 
 Plugin 'JamshedVesuna/vim-markdown-preview'
+
+Plugin 'godlygeek/tabular'
+
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()            " required
 
@@ -189,3 +194,6 @@ let g:go_code_completion_enabled = 0
 let g:go_highlight_types = 1
 
 let g:airline_theme='light'
+
+let vim_markdown_preview_hotkey='<c-m>'
+let vim_markdown_preview_toggle=3
