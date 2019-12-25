@@ -131,8 +131,8 @@ autocmd BufWrite *.h,*.cc,*.cpp,*.c call FormatOnSave()
 
 nmap fa :execute FormatAll() <CR>
 
-"set background=dark
-"colorscheme onedark
+set background=dark
+colorscheme onedark
 
 "if &diff 
 "colorscheme evening endif
@@ -195,5 +195,6 @@ let g:go_highlight_types = 1
 
 let g:airline_theme='light'
 
-let vim_markdown_preview_hotkey='<c-m>'
-let vim_markdown_preview_toggle=3
+let vim_markdown_preview_hotkey = '<c-m>'
+let vim_markdown_preview_toggle = 3
+let vim_markdown_preview_github = 0
